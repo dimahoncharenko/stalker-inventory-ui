@@ -1,5 +1,5 @@
-import { HomeScreen } from "@/screens/home";
+import { StoreScreen } from '@/screens/store'
 
 export default function () {
-  return <HomeScreen />;
+  return <StoreScreen />
 }
