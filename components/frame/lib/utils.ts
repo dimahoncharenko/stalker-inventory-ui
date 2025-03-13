@@ -48,15 +48,15 @@ export function placeItem(
   width: number,
   height: number,
 ) {
-  const copy = [...grid]
+  const deepCopy = grid.map(row => [...row])
 
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) {
-      copy[row + i][col + j] = true
+      deepCopy[row + i][col + j] = true
     }
   }
 
-  return copy
+  return deepCopy
 }
 
 // 🟢 Greedy algorithm for inventory placement

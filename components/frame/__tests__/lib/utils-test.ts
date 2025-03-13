@@ -52,17 +52,18 @@ describe('Greedy algorithms for inventory placing', () => {
   })
 
   test('correctly sorts items in the inventory', () => {
-    // 1 -> AK: 11
-    // 2 -> AKM: 11
-    // 3 -> Compass Artifact: 4
-    // 4 -> Exoskeleton: 5.49
-    const items = [testItems[3], testItems[1], testItems[8], testItems[4]]
+    const compass = testItems[3] // 5 cells
+    const akm = testItems[1] // 11 cells
+    const ak = testItems[0] // 11 cells
+    const exoskeleton = testItems[4] // 5.49 cells
+
+    const items = [ak, akm, compass, exoskeleton]
 
     const arrangedItems = greedyInventoryPlacement(items)
 
-    expect(arrangedItems[0].width).toEqual(testItems[3].width)
-    expect(arrangedItems[1].width).toEqual(testItems[1].width)
-    expect(arrangedItems[2].width).toEqual(testItems[4].width)
-    expect(arrangedItems[3].width).toEqual(testItems[8].width)
+    expect(arrangedItems[0].width).toEqual(ak.width)
+    expect(arrangedItems[1].width).toEqual(akm.width)
+    expect(arrangedItems[2].width).toEqual(compass.width)
+    expect(arrangedItems[3].width).toEqual(exoskeleton.width)
   })
 })

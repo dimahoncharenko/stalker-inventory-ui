@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { LootItem } from '@/shared/types/loot'
 import { CELL_SIZE, MAX_INVENTORY_WEIGHT } from '../lib/data'
-import { arrangedLoot } from '../lib/utils'
 
 type Props = {
   loot: LootItem[]
@@ -21,7 +20,7 @@ export const Frame = ({ loot }: Props) => {
         className='h-[99.9%] flex-row flex-wrap gap-y-[2px] border-[14px] border-black py-[6.5px] pl-[9px]'
         source={require('../../../assets/images/grid.jpg')}
       >
-        {arrangedLoot.map((item, index) => (
+        {loot.map((item, index) => (
           <View
             testID={`loot-item-${index}`}
             className='relative border border-[#666666]'

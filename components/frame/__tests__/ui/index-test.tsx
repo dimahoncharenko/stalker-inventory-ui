@@ -25,12 +25,14 @@ describe('<Frame/>', () => {
   })
 
   test("Correctly renders items' cards", () => {
-    const { getByTestId, getByText } = render(<Frame loot={testItems} />)
+    const { getByTestId } = render(<Frame loot={testItems} />)
 
     testItems.forEach((item, index) => {
       const cardImage = getByTestId(`card-image-${index}`)
+      const quantityText = getByTestId(`loot-item-${index}`)
 
-      expect(item.quantity).toEqual(testItems[index].quantity)
+      expect(quantityText).toBeTruthy()
+      expect(quantityText).toHaveTextContent(item.quantity.toString())
       expect(cardImage).toHaveProp('source', item.imageSource)
     })
   })
