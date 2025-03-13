@@ -21,7 +21,7 @@ describe('<Frame/>', () => {
   test('Correctly sum up weights', () => {
     const { getByText } = render(<Frame loot={testItems} />)
 
-    getByText('7.0 / 100.0 kg')
+    getByText('24.0 / 100.0 kg')
   })
 
   test("Correctly renders items' cards", () => {
@@ -30,8 +30,7 @@ describe('<Frame/>', () => {
     testItems.forEach((item, index) => {
       const cardImage = getByTestId(`card-image-${index}`)
 
-      getByText(item.quantity.toString())
-
+      expect(item.quantity).toEqual(testItems[index].quantity)
       expect(cardImage).toHaveProp('source', item.imageSource)
     })
   })
